@@ -27,6 +27,7 @@ $Breakpoint-1200: 1200px;
 $Breakpoint-900: 900px;
 $Breakpoint-600: 600px;
 $Breakpoint-480: 480px;
+$Breakpoint-643: 643px;
 
 // screen
 @mixin below-1200{
@@ -46,6 +47,11 @@ $Breakpoint-480: 480px;
 }
 @mixin below-480{
     @media(max-width: $Breakpoint-480) {
+        @content;
+    }
+}
+@mixin below-643{
+    @media(max-width: $Breakpoint-643) {
         @content;
     }
 }
@@ -907,6 +913,23 @@ footer{
     }
 }
 
+@include below-643(){
+    .safety{
+        .inner-container{
+            .text{
+                .a{
+                   padding: .75rem 1.5rem; 
+                }
+            }
+            .img{
+                img{width: 85%; height: 85%;}
+
+                
+            }
+        }
+    }
+}
+
 @include below-600(){
     
     header{
@@ -996,6 +1019,14 @@ footer{
             img{
                 justify-self: center;
                 order: 1;
+                .img{
+                    display: flex;
+                    justify-content: center;
+                    img{
+                        width: 350px;
+                        height: 350px;
+                    }
+                }
             }
 
             .text{
